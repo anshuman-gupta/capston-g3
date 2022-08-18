@@ -1,12 +1,14 @@
 const express = require("express")
-const server = express()
+const app = express()
 
-server.get("/",(req, res)=>{
-    res.send("this is product page")
-})
+const cors = require("cors")
+app.use(cors())
 
-server.get("/dashboard",(req, res)=>{
-    res.send("this is product dashboard")
-})
+const bodyparser= require("body-parser")
+app.use(bodyparser.json())
 
-module.exports = server
+
+const routes= require("./route/productroute")
+app.use("/",routes)
+
+module.exports = app
