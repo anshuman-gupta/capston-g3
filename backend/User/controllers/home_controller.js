@@ -12,7 +12,7 @@ module.exports.signUp = function (req, res) {
 module.exports.signIn = function (req, res) {
   res.render("sign_in");
 };
-
+////we are creating user i.e.sign-up user
 module.exports.create = async function (req, res) {
   const existuser = await User.findOne({ email: req.body.email });
   if (existuser) {
@@ -33,6 +33,7 @@ module.exports.create = async function (req, res) {
     );
   }
 };
+////we are login user i.e.sign-in user
 module.exports.createSession = async function (req, res) {
   const existuser = await User.findOne({ email: req.body.email });
   if (existuser) {
