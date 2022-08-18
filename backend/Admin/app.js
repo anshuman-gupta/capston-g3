@@ -1,12 +1,17 @@
-const express = require("express")
-const server = express()
+const express = require("express");
+const server = express();
+const mongoose = require("./configs/mongoose");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const path = require("path");
 
-server.get("/",(req, res)=>{
-    res.send("this is admin page")
-})
+server.use(cookieParser());
+server.use(express.urlencoded());
+server.use(bodyParser.json());
 
-server.get("/dashboard",(req, res)=>{
-    res.send("this is admin dashboard")
-})
+server.set("views", path.join(__dirname, "views"));
+server.set("view engine", "ejs");
 
-module.exports = server
+server.use("/", require("./routes"));
+
+module.exports = server;
