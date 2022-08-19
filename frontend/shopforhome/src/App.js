@@ -6,7 +6,7 @@ import SharedLayout from './components/SharedLayout'
 import Products from './components/Products';
 import About from './components/About';
 import SingleProduct from './components/SingleProduct';
-
+import BulkUpload from './components/bulk_update/BulkUpload';
 function App() {
   return (
     <div className="App">
@@ -16,6 +16,7 @@ function App() {
                 <Route index element={<Home/>}></Route>
                 <Route path='about' element={<About/>}></Route>
                 <Route path='products' element={<Products/>}></Route>
+                <Route path='/bulkupload' element={<BulkUpload/>} />
                 <Route path='products/:productId' element={<SingleProduct/>}></Route>
               </Route>
           </Routes>
