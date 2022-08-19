@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const schema = mongoose.Schema
-mongoose.connect("mongodb://localhost:27017/product").then((res)=>console.log("connecting prduct model")).catch((err)=>console.log(err))
+mongoose.connect("mongodb+srv://abhi_capstone:g3capstone@cluster0.jwbklkz.mongodb.net/?retryWrites=true&w=majority").then((res)=>console.log("connecting prduct model")).catch((err)=>console.log(err))
 
 const productSchema = new schema({
     title:{

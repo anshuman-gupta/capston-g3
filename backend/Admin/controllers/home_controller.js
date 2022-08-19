@@ -28,11 +28,12 @@ module.exports.create = async function (req, res) {
       },
       function (err, user) {
         if (err) return err;
-        res.send("New User created");
+        res.send("New Admin created");
       }
     );
   }
 };
+
 module.exports.createSession = async function (req, res) {
   const existuser = await Admin.findOne({ email: req.body.email });
   if (existuser) {
@@ -42,7 +43,7 @@ module.exports.createSession = async function (req, res) {
     );
     if (checkPass) {
       var jsontoken = jsonwebtoken.sign(
-        { email: existuser.email, name: existuser.name, user_type: "user" },
+        { email: existuser.email, name: existuser.name, user_type: "admin" },
         "abhisecret",
         {
           expiresIn: "1h",

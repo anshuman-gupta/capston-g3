@@ -6,6 +6,7 @@ function authentication(req, res, next) {
     const token = req.cookies.jwttoken;
     const result = jwt.verify(token, "abhisecret");
     req.token = result;
+    console.log(req.token.user_type);
     next();
   } catch (err) {
     res.send("Already Logout");
