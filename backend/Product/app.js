@@ -1,14 +1,16 @@
-const express = require("express")
-const app = express()
+const express = require("express");
+const app = express();
+const path = require("path");
 
-const cors = require("cors")
-app.use(cors())
+const mongoose = require("./configs/mongoose");
 
-const bodyparser= require("body-parser")
-app.use(bodyparser.json())
+app.use(express.urlencoded());
 
+app.use("/uploads", express.static(__dirname + "/uploads"));
 
-const routes= require("./route/productroute")
-app.use("/",routes)
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-module.exports = app
+app.use("/", require("./route"));
+
+module.exports = app;
