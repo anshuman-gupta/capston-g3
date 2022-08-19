@@ -1,12 +1,12 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,useNavigate } from 'react-router-dom'
 import { CgProfile } from 'react-icons/cg'
 import { BsBookmarkHeart } from 'react-icons/bs'
 import { GrCart } from 'react-icons/gr'
 
 const  Navbar = () => {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     
     return (
         <div className="nav-container">
@@ -26,15 +26,15 @@ const  Navbar = () => {
                         <GrCart className='icons cart-icon'/>
                     </li>
                     <li className="item">
-                            <div class="dropdown">
-                            <div class=" dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className="dropdown">
+                            <div className=" dropdown-toggle"  role="button" data-bs-toggle="dropdown">
                                 <CgProfile className='icons'/>
                             </div>
 
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Signup</a></li>
-                                <li><a class="dropdown-item" href="#">Login</a></li>
-                                <li><a class="dropdown-item" href="#">others</a></li>
+                            <ul className="dropdown-menu">
+                                <li><a to='signup' className="dropdown-item" onClick={()=>navigate('signup')} >Signup</a></li>
+                                <li><a to='login' className="dropdown-item" onClick={()=>navigate('login')} >Login</a></li>
+                                <li><a className="dropdown-item" >others</a></li>
                             </ul>
                             </div>
                     </li>
