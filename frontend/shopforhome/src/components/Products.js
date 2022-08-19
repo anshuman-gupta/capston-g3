@@ -1,11 +1,11 @@
 import React,{useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,NavLink } from 'react-router-dom';
 import data from '../Assets/decor-data';
 
  const Products = () => {
     
     const [searchItem,setSearchItem] = useState("")
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [products,setProducts] = useState(data)
 
     return (
@@ -15,7 +15,7 @@ import data from '../Assets/decor-data';
                 <div className='title-underline'></div>
             </div>
             <div class="input-group mb-3 search-bar">
-              <input type="text" class="form-control" onChange={(e)=>{setSearchItem(e.target.value)}} placeholder="search bedrooms..."/>
+              <input type="text" className="form-control" onChange={(e)=>{setSearchItem(e.target.value)}} placeholder="search bedrooms..."/>
               <span class="input-group-text" id="basic-addon2">search</span>
             </div>
             <div className='products-container'>
@@ -34,6 +34,7 @@ import data from '../Assets/decor-data';
                                             <p>${product.price}</p>
                                         </div>
                                     </div>
+                                    <NavLink to={`/products/${product.id}`} className='link'><button className='btn btn-outline-dark'>more</button></NavLink>
                                 </div>
                     })
                     
