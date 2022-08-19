@@ -56,7 +56,7 @@ module.exports.createSession = async function (req, res) {
         msg: "Sign In Successfully",
         token: jsontoken,
         status: true,
-        statusCode: 404,
+        statusCode: 200,
       });
     } else {
       return res.send({

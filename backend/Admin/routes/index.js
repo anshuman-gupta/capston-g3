@@ -10,6 +10,7 @@ router.get("/logout", authentication, homeControler.logOut);
 router.post("/create", homeControler.create);
 router.post("/create-session", homeControler.createSession);
 
+router.use("/user", require("./user"));
 router.get("/", homeControler.home);
 
 module.exports = router;
